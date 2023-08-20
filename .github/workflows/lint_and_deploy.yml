@@ -4,6 +4,8 @@ on:
     branches: [develop, main]
   pull_request:
     branches: [develop, main]
+permissions:
+  contents: write
 
 jobs:
   lint_and_deploy:
@@ -27,8 +29,8 @@ jobs:
       - name: Build project
         run: yarn build
 
-      - name: Deploy to GitHub pages
-        uses: JamesIves/github-pages-deploy-action@4.1.1
+      - name: Deploy project to GitHub pages
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
         with:
           branch: gh-pages
           folder: dist
