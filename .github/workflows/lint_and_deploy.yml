@@ -31,7 +31,6 @@ jobs:
 
       - name: Lint project
         run: yarn lint
-        working-directory: ./dg-edu
 
   # deploy:
   #   needs: lint
