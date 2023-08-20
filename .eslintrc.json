@@ -29,5 +29,10 @@
     "react/prop-types": "off",
     "radix": "warn",
     "no-console": ["warn", { "allow": ["debug", "warn", "error", "assert"] }]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
