@@ -24,24 +24,31 @@ jobs:
   lint:
     needs: setup
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set working directory
+        run: cd ./dg-edu
+
       - name: Lint project
         run: yarn lint
+        working-directory: ./dg-edu # Specify the working directory
 
   deploy:
     needs: lint
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set working directory
+        run: cd ./dg-edu
+
       - name: Build project
-        run: npm run build
+        run: yarn build
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
