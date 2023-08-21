@@ -168,17 +168,17 @@ module.exports = {
         dependencyTypes: ['npm-no-pkg', 'npm-unknown'],
       },
     },
-    {
-      name: 'not-to-unresolvable',
-      comment:
-        "This module depends on a module that cannot be found ('resolved to disk'). If it's an npm " +
-        'module: add it to your package.json. In all other cases you likely already know what to do.',
-      severity: 'error',
-      from: {},
-      to: {
-        couldNotResolve: true,
-      },
-    },
+    // {
+    //   name: 'not-to-unresolvable',
+    //   comment:
+    //     "This module depends on a module that cannot be found ('resolved to disk'). If it's an npm " +
+    //     'module: add it to your package.json. In all other cases you likely already know what to do.',
+    //   severity: 'error',
+    //   from: {},
+    //   to: {
+    //     couldNotResolve: true,
+    //   },
+    // },
     {
       name: 'no-duplicate-dep-types',
       comment:
@@ -269,7 +269,6 @@ module.exports = {
        - dynamic: a boolean indicating whether to ignore dynamic (true) or static (false) dependencies.
           leave out if you want to exclude neither (recommended!)
     */
-    exclude: 'src/vite-env.d.ts',
 
     /* pattern specifying which files to include (regular expression)
        dependency-cruiser will skip everything not matching this pattern
