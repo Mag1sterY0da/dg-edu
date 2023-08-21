@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: 18
 
+      - name: Install dependencies
+        run: yarn install
+
       - name: Lint project
         run: yarn lint
 
@@ -36,6 +39,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+
+      - name: Install dependencies
+        run: yarn install
 
       - name: Build project
         run: yarn build
