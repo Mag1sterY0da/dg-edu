@@ -17,7 +17,7 @@ export const FormLogin = () => {
           fullWidth
           style={{ marginBottom: '16px' }}
         />
-        <Button variant="contained" color="primary" fullWidth component={Link} to="/profile">
+        <Button variant="contained" color="primary" fullWidth component={Link} to="/dg-edu/profile">
           Log In
         </Button>
       </form>

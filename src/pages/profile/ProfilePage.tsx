@@ -25,7 +25,7 @@ export const ProfilePage = ({ auth }: Props) => {
               {tempUser.nickname} #{tempUser.id}
             </Typography>
 
-            <Button variant="contained" component={Link} to="/account">
+            <Button variant="contained" component={Link} to="/dg-edu/account">
               Go to the account settings
             </Button>
 

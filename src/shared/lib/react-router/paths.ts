@@ -1,9 +1,9 @@
 export const PATH_PAGE = {
-  root: '/',
+  root: '/dg-edu/',
   account: {
-    root: 'account',
+    root: '/dg-edu/account',
   },
   profile: {
-    root: 'profile',
+    root: '/dg-edu/profile',
   },
 };
