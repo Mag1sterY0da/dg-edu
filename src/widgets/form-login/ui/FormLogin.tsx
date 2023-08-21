@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Paper, TextField, Typography } from 'shared/ui';
 
 export const FormLogin = () => {
@@ -16,7 +17,7 @@ export const FormLogin = () => {
           fullWidth
           style={{ marginBottom: '16px' }}
         />
-        <Button variant="contained" color="primary" fullWidth>
+        <Button variant="contained" color="primary" fullWidth component={Link} to="/profile">
           Log In
         </Button>
       </form>
