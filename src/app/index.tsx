@@ -1,9 +1,12 @@
+import { Router } from 'pages';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Providers } from './providers';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Providers />
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   </React.StrictMode>,
 );
