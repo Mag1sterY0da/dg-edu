@@ -6,7 +6,7 @@ on:
     branches: [develop, main]
 
 jobs:
-  setup:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,45 +18,42 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: yarn install
-
-  lint:
-    needs: setup
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Reuse Workspace
-        uses: actions/checkout@v3
-
       - name: Lint project
         run: yarn lint
 
-  # deploy:
-  #   needs: lint
-  #   runs-on: ubuntu-latest
+      - name: Install dependencies
+        run: yarn install
 
-  #   steps:
-  #     - name: Checkout Repository
-  #       uses: actions/checkout@v3
+  deploy:
+    needs: lint
+    runs-on: ubuntu-latest
 
-  #     - name: Build project
-  #       run: yarn build
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-  #     - name: Upload production-ready build files
-  #       uses: actions/upload-artifact@v2
-  #       with:
-  #         name: production-files
-  #         path: ./dist
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-  #     - name: Download artifact
-  #       uses: actions/download-artifact@v2
-  #       with:
-  #         name: production-files
-  #         path: ./dist
+      - name: Build project
+        run: yarn build
 
-  #     - name: Deploy to GitHub Pages
-  #       uses: peaceiris/actions-gh-pages@v3
-  #       with:
-  #         github_token: ${{ secrets.GITHUB_TOKEN }}
-  #         publish_dir: ./dist
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v2
+        with:
+          name: production-files
+          path: ./dist
+
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: production-files
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
