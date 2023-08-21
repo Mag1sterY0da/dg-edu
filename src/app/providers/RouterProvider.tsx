@@ -1,7 +1,8 @@
 import AccountPage from 'pages/account';
+import HomePage from 'pages/home-page';
 import ProfilePage from 'pages/profile';
 import React from 'react';
-import { Navigate, useRoutes } from 'react-router-dom';
+import { useRoutes } from 'react-router-dom';
 import { PATH_PAGE } from 'shared/lib/react-router';
 
 export const Router = () => {
@@ -10,15 +11,20 @@ export const Router = () => {
   return useRoutes([
     {
       path: PATH_PAGE.root,
-      element: <Navigate to={PATH_PAGE.profile} />,
-    },
-    {
-      path: PATH_PAGE.profile,
-      element: isAuth ? <ProfilePage auth /> : <ProfilePage />,
-    },
-    {
-      path: PATH_PAGE.account,
-      element: <AccountPage />,
+      children: [
+        {
+          path: PATH_PAGE.root,
+          element: <HomePage />,
+        },
+        {
+          path: PATH_PAGE.profile,
+          element: isAuth ? <ProfilePage auth={isAuth} /> : <ProfilePage />,
+        },
+        {
+          path: PATH_PAGE.account,
+          element: <AccountPage />,
+        },
+      ],
     },
   ]);
 };

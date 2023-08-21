@@ -1,5 +1,5 @@
 export const PATH_PAGE = {
-  root: '/',
-  account: '/account',
-  profile: '/profile',
+  root: '/dg-edu',
+  account: 'account',
+  profile: 'profile',
 };
