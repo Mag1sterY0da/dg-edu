@@ -1,18 +1,9 @@
-import { User } from 'entities/session/model/type';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Button, Container, Stack, Typography } from 'shared/ui';
+import { ProfilePageProps, tempUser } from '../model';
 
-type Props = {
-  auth?: boolean;
-};
-
-export const ProfilePage = ({ auth }: Props) => {
-  const tempUser: User = {
-    id: 0,
-    nickname: 'John',
-  };
-
+export const ProfilePage = ({ auth }: ProfilePageProps) => {
   return (
     <Container maxWidth="md">
       <Box sx={{ my: 4 }}>
@@ -22,7 +13,7 @@ export const ProfilePage = ({ auth }: Props) => {
         {auth ? (
           <Stack gap={2}>
             <Typography variant="h4">
-              {tempUser.nickname} #{tempUser.id}
+              {tempUser.username} #{tempUser.id}
             </Typography>
 
             <Button variant="contained" component={Link} to="/dg-edu/account">

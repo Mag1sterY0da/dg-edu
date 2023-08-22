@@ -1,3 +1,3 @@
-import { AccountPage } from './AccountPage';
+import { AccountPage } from './ui';
 
 export default AccountPage;
