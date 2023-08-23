@@ -1,5 +1,5 @@
 import { createEffect, createEvent, createStore, sample } from 'effector';
-import { loginUser } from '../api';
+import { loginUser } from 'entities/session/model';
 
 export const usernameChanged = createEvent<string>();
 export const passwordChanged = createEvent<string>();
