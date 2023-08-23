@@ -10,7 +10,7 @@ export const HomePage = () => {
   return (
     <Container maxWidth="md">
       <Paper elevation={3} style={{ padding: '20px' }}>
-        <form onSubmit={model.handleSubmit}>
+        <form onSubmit={() => model.loginUserRequested}>
           <TextField
             label="Username"
             variant="outlined"
