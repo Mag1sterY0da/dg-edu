@@ -3,9 +3,10 @@ import { sessionModel } from 'entities/session';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Button, Container, Stack, Typography } from 'shared/ui';
+import { $user } from '../model';
 
 export const ProfilePage = () => {
-  const user = useStore(sessionModel.$user);
+  const user = useStore($user);
 
   return (
     <Container maxWidth="md">
@@ -23,7 +24,7 @@ export const ProfilePage = () => {
               Go to the account settings
             </Button>
 
-            <Button variant="outlined" onClick={() => sessionModel.logout()}>
+            <Button variant="outlined" onClick={() => sessionModel.logoutFx()}>
               Logout
             </Button>
           </Stack>

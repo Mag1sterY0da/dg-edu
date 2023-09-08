@@ -1,15 +1,11 @@
-import { createEffect, createStore, sample } from 'effector';
+import { createEffect, sample } from 'effector';
 import { createGate } from 'effector-react';
-import { getCurrentUser, login } from './api';
-import { User } from './types';
+import { getCurrentUser, login, logout } from './api';
 
 export const gate = createGate();
 
 export const loginFx = createEffect(login);
-const getCurrentUserFx = createEffect(getCurrentUser);
-
-export const $user = createStore<User | null>(null);
-
-$user.on(getCurrentUserFx.doneData, (_, user) => user);
+export const logoutFx = createEffect(logout);
+export const getCurrentUserFx = createEffect(getCurrentUser);
 
 sample({ clock: gate.open, target: getCurrentUserFx });
