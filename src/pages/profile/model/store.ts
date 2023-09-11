@@ -1,6 +1,6 @@
 import { createStore } from 'effector';
-import { User, getCurrentUserFx } from 'entities/session/model';
+import { sessionModel } from 'entities/session';
 
-export const $user = createStore<User | null>(null);
+export const $user = createStore<sessionModel.User | null>(null);
 
-$user.on(getCurrentUserFx.doneData, (_, user) => user);
+$user.on(sessionModel.getCurrentUserFx.doneData, (_, user) => user);

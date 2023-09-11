@@ -1,9 +1,8 @@
 import { useStore } from 'effector-react';
-import { sessionModel } from 'entities/session';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Button, Container, Stack, Typography } from 'shared/ui';
-import { $user } from '../model';
+import { $user, loginRequested, logoutRequested } from '../model';
 
 export const ProfilePage = () => {
   const user = useStore($user);
@@ -24,12 +23,12 @@ export const ProfilePage = () => {
               Go to the account settings
             </Button>
 
-            <Button variant="outlined" onClick={() => sessionModel.logoutFx()}>
+            <Button variant="outlined" onClick={() => logoutRequested()}>
               Logout
             </Button>
           </Stack>
         ) : (
-          <Button variant="contained" onClick={() => sessionModel.loginFx()} fullWidth>
+          <Button variant="contained" onClick={() => loginRequested()} fullWidth>
             Login
           </Button>
         )}
